@@ -1,0 +1,12 @@
+# Dependências
+/node_modules
+
+# Arquivos de build do Next.js
+/.next
+
+# Arquivos de ambiente local
+.env.local
+.env
+
+# Arquivos de documentação
+README.md

@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "music": "Music",
+    "conferences": "Conferences",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "language": {
+    "pt": "PT",
+    "en": "EN",
+    "es": "ES",
+    "title": "Language"
+  }
+}
