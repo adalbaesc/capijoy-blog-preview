@@ -1,9 +1,15 @@
-﻿import '@/styles/globals.css';
+import '@/styles/globals.css';
+import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Capí Joy',
-  description: 'Site multilíngue com Next.js 15'
+  description: 'Site multilíngue com Next.js 15',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico'
+  }
 };
 
 export default function RootLayout({children}: {children: ReactNode}) {

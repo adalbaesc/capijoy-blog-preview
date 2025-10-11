@@ -1,5 +1,6 @@
 ﻿import Image from 'next/image';
 import Link from 'next/link';
+import {FaWhatsapp} from 'react-icons/fa';
 import TikTokCarousel, {type TikTokVideo} from '@/components/site/TikTokCarousel';
 import HomePosts from '@/components/site/HomePosts';
 import type {Locale} from '@/i18n/locales';
@@ -37,10 +38,8 @@ const MUSIC_CARDS = [
 ] as const;
 
 const CONFERENCE_TOPICS = [
-  'Superação: A Beleza de Recomeçar — Uma conversa sobre como ressignificar as perdas e usar as cicatrizes como mapa para um futuro mais forte. Falamos sobre resiliência, perdão e a força que nasce da vulnerabilidade.',
-  'Propósito: Encontrando sua Voz e sua Missão — Um bate-papo prático para ajudar as pessoas a identificarem seus dons e paixões, alinhando-os a um propósito maior que vai além da carreira e toca a alma.',
-  'Fé na Prática: A Confiança que Transforma a Rotina — Como sair do campo das ideias e viver uma fé real, que traz paz em meio ao caos, direção nas incertezas e força nas batalhas diárias.',
-  'Liderança com Alma: Inspirando Pessoas — Uma abordagem sobre liderança baseada em valores, empatia e serviço. Para líderes que desejam construir equipes com propósito e um ambiente de trabalho mais humano.'
+  'Mais do que um título, é uma jornada. Este projeto reúne reflexões sobre a ligação profunda entre liberdade e paz  dois estados que se completam e revelam a essência de viver de forma verdadeira. É um convite para respirar fundo, olhar para dentro e descobrir onde a encontramos descanso.',
+  'O Retorno. Uma história que não deveria ter sido contada. Um relato intenso, real e transformador. “O Retorno” não é apenas uma história, é um testemunho de escolhas, sentimentos e caminhos que marcaram profundamente a vida de Capí Joy. Escrito com transparência e coragem, este projeto literário mostra que até as histórias mais difíceis podem ensinar, libertar e inspirar outros.'
 ] as const;
 
 const TIKTOK_VIDEO_SOURCES = [
@@ -111,7 +110,7 @@ export default async function Page({params}: {params: Promise<Params>}) {
   return (
     <>
       <section id="topo" className="relative isolate">
-        <div className="relative aspect-[16/9] w-full max-h-[70vh]">
+        <div className="relative aspect-[5/7] w-full max-h-[85vh] sm:aspect-[16/9] sm:max-h-[70vh]">
           <Image
             src="/assets/banner-capi-joy.webp"
             alt="Capí Joy se apresentando"
@@ -123,19 +122,21 @@ export default async function Page({params}: {params: Promise<Params>}) {
           <div className="absolute inset-0 bg-black/55" />
         </div>
         <div className="absolute inset-0">
-          <div className="flex h-full items-center">
-            <div className="mx-auto w-full max-w-7xl px-4">
+          <div className="flex h-full items-start sm:items-center">
+            <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-20 sm:px-6 sm:pb-0 sm:pt-0">
               <div className="max-w-3xl space-y-5 text-white">
                 <h1 className="text-3xl font-extrabold sm:text-5xl">
-                  Música que toca a alma, palavras que constroem pontes
+                  Liberdade e paz. Sem limites, sem medo, só ação. 
                 </h1>
                 <p className="text-base text-white/90">
-                  Uma jornada de fé, esperança e recomeço para inspirar corações a encontrarem propósito todos os dias.
+                  Bem-vindo ao espaço oficial de Capí Joy. Aqui, cada palavra, canção e projeto nasce de um lugar real, humano e Deus 
+Este é um refúgio para quem busca leveza, verdade e inspiração para viver com mais sentido.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="#contato" className="rounded-full border border-white/80 px-4 py-2 text-sm text-white hover:bg-white/10">
-                    Leve esta mensagem para o seu evento
+                    Ouça, leia, sinta…
                   </Link>
+                  <p>E caminhe comigo nessa jornada onde a liberdade e a paz se encontram.</p>
                   <Link
                     href="https://www.youtube.com/watch?v=6EVY-Ef8GRY"
                     target="_blank"
@@ -152,7 +153,7 @@ export default async function Page({params}: {params: Promise<Params>}) {
       </section>
 
       <section id="sobre" className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
-        <div className="relative mx-auto w-full max-w-[320px] overflow-hidden rounded-3xl bg-black/20 p-4 sm:max-w-[360px] lg:max-w-[400px] lg:aspect-[3/4]">
+        <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-3xl bg-black/20 p-3 aspect-[3/4] sm:max-w-[380px] sm:p-4 lg:max-w-[420px]">
           <Image
             src="/assets/retrato-capi-joy.webp"
             alt="Retrato de Capí Joy"
@@ -162,56 +163,65 @@ export default async function Page({params}: {params: Promise<Params>}) {
           />
         </div>
         <div className="space-y-6 text-base leading-relaxed">
-          <h2 className="text-3xl font-semibold">A História por Trás da Missão</h2>
+          <h2 className="text-3xl font-semibold">Sou Capí Joy, compositor, escritor e artista independente.</h2>
           <p>
-            Meu nome é Capí Joy. Sou brasileiro, pai de família, gerente Administrativo e, acima de tudo, um homem de fé e um sonhador incansável. Minha jornada não é a de alguém perfeito, mas a de alguém que encontrou no poder de Deus, na força do amor e no valor da verdade os pilares para guiar uma vida de propósito e gratidão. Carrego comigo a simplicidade das pessoas, a coragem de quem não desiste e a beleza que existe em recomeçar, mesmo depois de tudo.
+            Gosto de transformar sentimentos e experiências em palavras e músicas. Minha arte é simples, mas nasce de um lugar profundo, onde espiritualidade, humanidade e verdade se entrelaçam.
           </p>
           <p>
-            Minha missão é clara: usar cada experiência que vivi — na fé, no trabalho e na arte — para ser uma ponte. Uma ponte para tocar corações que se sentem sozinhos, para levantar quem caiu e para dar voz a quem se sente invisível. Em um mundo de ruídos, quero que minha música e minhas palavras sejam um abraço de Deus, um lugar de refúgio e transformação.
+            Escrevo para tocar corações, canto para libertar almas e crio para inspirar vidas mais leves e autênticas.
           </p>
           <p>
-            Acredito que “Tudo volta pra Deus”, porque d’Ele vem tudo e para Ele tudo retorna. Esse é o lema que guia meus passos. Valorizo a presença de Deus agindo nas pequenas coisas, a lealdade verdadeira, a sabedoria que brota da simplicidade e a família como meu porto seguro. Aprendi que o tempo passa rápido demais e que, no fim, o que importa são as marcas de fé, música e esperança que deixamos no caminho.
+            Meu propósito é compartilhar mensagens que despertem fé, esperança e liberdade interior porque acredito que a verdadeira paz começa dentro de nós.
           </p>
         </div>
       </section>
 
-      <section id="musicas" className="mx-auto w-full max-w-7xl space-y-6 px-4 py-10">
-        <h2 className="text-3xl font-semibold">Canções que Nascem da Alma para Falar ao Coração</h2>
-        <p className="max-w-2xl text-sm opacity-90">
-          Cada canção é um pedaço da minha jornada, uma oração transformada em melodia. Ouça, compartilhe e deixe a mensagem te encontrar.
-        </p>
-        <div className="overflow-hidden rounded-3xl">
-          <iframe
-            width="100%"
-            height="360"
-            src="https://www.youtube-nocookie.com/embed/6EVY-Ef8GRY"
-            title="Assista ao clipe BASTA"
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {MUSIC_CARDS.map(card => (
-            <article key={card.title} className="space-y-3 rounded-3xl bg-white/5 p-6">
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
-                <Image src={card.image} alt={card.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 30vw" />
-              </div>
-              <h3 className="text-xl font-semibold">{card.title}</h3>
-              <p className="text-sm opacity-90">{card.description}</p>
-              <Link href={card.href} target="_blank" rel="noopener noreferrer" className="text-sm underline">
-                {card.cta}
-              </Link>
-            </article>
-          ))}
+      <section id="musicas" className="relative w-full overflow-hidden px-4 py-10">
+        <div
+          className="absolute inset-0 -z-20 h-full w-full bg-fixed bg-cover bg-center bg-no-repeat object-cover"
+          style={{backgroundImage: "url('/assets/background-music.webp')"}}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 -z-10 h-full w-full bg-black/40" aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-7xl space-y-6 text-white">
+          <h2 className="text-3xl font-semibold">Palco Canção BASTA</h2>
+          <p className="max-w-2xl text-sm opacity-90">
+            Um projeto visual e musical com energia intensa e alma livre.
+            Imagino aqui Adalberto um palco moderno, fundo preto, luzes precisas e uma banda de rock vibrante. É assim que nasce o ambiente ideal para apresentar a canção "BASTA" — um grito de verdade e transformação.
+            Cada detalhe foi pensado para transmitir força, emoção e autenticidade.
+          </p>
+          <div className="overflow-hidden rounded-3xl">
+            <iframe
+              width="100%"
+              height="360"
+              src="https://www.youtube-nocookie.com/embed/6EVY-Ef8GRY"
+              title="Assista ao clipe BASTA"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {MUSIC_CARDS.map(card => (
+              <article key={card.title} className="space-y-3 rounded-3xl bg-white/5 p-6">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
+                  <Image src={card.image} alt={card.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 30vw" />
+                </div>
+                <h3 className="text-xl font-semibold">{card.title}</h3>
+                <p className="text-sm opacity-90">{card.description}</p>
+                <Link href={card.href} target="_blank" rel="noopener noreferrer" className="text-sm underline">
+                  {card.cta}
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section id="conferencias" className="mx-auto w-full max-w-7xl space-y-6 px-4 py-10">
-        <h2 className="text-3xl font-semibold">Palavras que Constroem e Transformam</h2>
+        <h2 className="text-3xl font-semibold">LIBERDADE E PAZ — A CONEXÃO</h2>
         <p className="max-w-3xl text-sm opacity-90">
-          Minhas conferências são mais do que palestras; são encontros, uma troca sincera de experiências sobre os desafios da vida, sempre à luz da fé. O objetivo é sair de lá com o coração mais leve e a esperança renovada. Leve essa conversa para sua empresa, sua igreja ou seu evento.
         </p>
         <div className="grid gap-4 md:grid-cols-2">
           {CONFERENCE_TOPICS.map(topic => (
@@ -223,9 +233,9 @@ export default async function Page({params}: {params: Promise<Params>}) {
       </section>
 
       <section id="blog" className="mx-auto w-full max-w-7xl space-y-4 px-4 py-10">
-        <h2 className="text-3xl font-semibold">Diário de Bordo: Reflexões para a Jornada</h2>
+        <h2 className="text-3xl font-semibold">Blog / Reflexões</h2>
         <p className="text-sm opacity-90">
-          Um espaço para compartilhar pensamentos, histórias e experiências que nos conectam e nos lembram do que realmente importa.
+          Uma série devocional em três idiomas, escrita de forma prática e direta. A partir do Salmo 19, Capí Joy revela cinco chaves espirituais para viver com propósito e alcançar sucesso verdadeiro. Aquele que começa na alma e transborda na vida.
         </p>
         <HomePosts locale={locale} />
       </section>
@@ -236,11 +246,54 @@ export default async function Page({params}: {params: Promise<Params>}) {
       </section>
 
       <section id="contato" className="mx-auto w-full max-w-7xl px-4 py-16">
-        <div className="flex flex-col items-center gap-5 rounded-3xl bg-white/5 p-8 text-center shadow-lg">
-          <h3 className="text-lg font-semibold">Vamos Levar esta Mensagem Juntos?</h3>
+        <div className="flex flex-col items-center gap-6 rounded-3xl bg-white/5 p-8 text-center shadow-lg">
+          <h3 className="text-lg font-semibold">Quer falar com Capí Joy?</h3>
           <p className="text-sm opacity-90">
-            Se você deseja levar essa mensagem para sua comunidade, evento ou igreja, vamos conversar. Juntos podemos construir pontes de esperança e inspirar pessoas a encontrarem coragem para recomeçar.
+            Use o formulário abaixo para enviar sua mensagem, convite ou testemunho. Você também pode acompanhar pelas redes sociais para ficar por dentro dos lançamentos, reflexões e eventos.
           </p>
+          <form
+            action="mailto:contato@capijoy.com.br"
+            method="POST"
+            encType="text/plain"
+            className="flex w-full max-w-xl flex-col gap-3 text-left font-sans"
+          >
+            <label className="flex flex-col gap-1">
+              <span className="text-sm font-medium text-white">Nome</span>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Como devemos te chamar?"
+                className="w-full rounded-lg border border-white/10 bg-white/90 px-4 py-2 text-sm font-sans text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-sm font-medium text-white">E-mail</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Seu e-mail"
+                className="w-full rounded-lg border border-white/10 bg-white/90 px-4 py-2 text-sm font-sans text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-sm font-medium text-white">Mensagem</span>
+              <textarea
+                name="message"
+                required
+                rows={4}
+                placeholder="Conte um pouco do que vc precisa..."
+                className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3 text-sm font-sans text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
+              />
+            </label>
+            <button
+              type="submit"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-amber-400 px-5 py-2 text-sm font-sans font-semibold text-neutral-900 transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-neutral-950"
+            >
+              Enviar mensagem
+            </button>
+          </form>
           <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
             <span className="font-medium">Telefone:</span>
             <Link href="tel:+5537999091340" className="underline">
@@ -259,7 +312,8 @@ export default async function Page({params}: {params: Promise<Params>}) {
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-2 rounded-full bg-amber-400 px-6 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-neutral-950"
           >
-            Fale pelo WhatsApp
+            <FaWhatsapp className="text-lg" aria-hidden="true" />
+            <span>Vamos conversar.</span>
           </Link>
         </div>
       </section>
