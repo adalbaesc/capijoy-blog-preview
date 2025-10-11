@@ -186,9 +186,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
         <div className="relative mx-auto w-full max-w-7xl space-y-6 text-white">
           <h2 className="text-3xl font-semibold">Palco Canção BASTA</h2>
           <p className="max-w-2xl text-sm opacity-90">
-            Um projeto visual e musical com energia intensa e alma livre.
-            Imagino aqui Adalberto um palco moderno, fundo preto, luzes precisas e uma banda de rock vibrante. É assim que nasce o ambiente ideal para apresentar a canção "BASTA" — um grito de verdade e transformação.
-            Cada detalhe foi pensado para transmitir força, emoção e autenticidade.
+            Um projeto visual e musical com energia intensa e alma livre. Imagino aqui Adalberto um palco moderno, fundo preto, luzes precisas e uma banda de rock vibrante. É assim que nasce o ambiente ideal para apresentar a canção "BASTA" — um grito de verdade e transformação. Cada detalhe foi pensado para transmitir força, emoção e autenticidade.
           </p>
           <div className="overflow-hidden rounded-3xl">
             <iframe
