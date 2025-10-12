@@ -222,7 +222,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
       </section>
 
       <section id="conferencias" className="mx-auto w-full max-w-7xl space-y-6 px-4 py-10">
-        <h2 className="text-3xl font-semibold">LIBERDADE E PAZ. A CONEXÃO</h2>
+        <h2 className="text-3xl font-semibold">LIBERDADE E PAZ. A CONEXÃO.</h2>
         <p className="max-w-3xl text-sm opacity-90">
         </p>
         <div className="grid gap-4 md:grid-cols-2">
@@ -285,7 +285,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
                 name="message"
                 required
                 rows={4}
-                placeholder="Conte um pouco do que vc precisa..."
+                placeholder="Conte um pouco do que você precisa..."
                 className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3 text-sm font-sans text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
               />
             </label>
@@ -299,7 +299,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
           <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
             <span className="font-medium">Telefone</span>
             <Link href="tel:+5537999091340" className="underline">
-              +55 (37) 99909-1340
+              +55 (37) 99876-5452
             </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
@@ -309,7 +309,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
             </Link>
           </div>
           <Link
-            href="https://api.whatsapp.com/send?phone=5537999091340"
+            href="https://api.whatsapp.com/send?phone=5537998765452"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-2 rounded-full bg-amber-400 px-6 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-neutral-950"
