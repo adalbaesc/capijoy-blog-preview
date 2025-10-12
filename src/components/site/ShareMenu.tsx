@@ -1,9 +1,9 @@
 "use client";
 
-import {useEffect, useMemo, useRef, useState} from 'react';
-import {LuCheck, LuCopy, LuShare2} from 'react-icons/lu';
-import {FaWhatsapp, FaFacebookF, FaLinkedinIn} from 'react-icons/fa';
-import {FaXTwitter} from 'react-icons/fa6';
+import {useEffect, useMemo, useRef, useState} from "react";
+import {LuCheck, LuCopy, LuShare2} from "react-icons/lu";
+import {FaWhatsapp, FaFacebookF, FaLinkedinIn} from "react-icons/fa";
+import {FaXTwitter} from "react-icons/fa6";
 
 type ShareMenuProps = {
   url: string;
@@ -13,14 +13,14 @@ type ShareMenuProps = {
 
 function normalizeUrl(path: string, origin?: string) {
   if (!path) {
-    return '';
+    return "";
   }
   if (/^https?:\/\//i.test(path)) {
     return path;
   }
-  const base = origin ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'https://capijoy.com.br';
-  const sanitizedBase = base.replace(/\/$/, '');
-  const sanitizedPath = path.startsWith('/') ? path : `/${path}`;
+  const base = origin ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://capijoy.com.br";
+  const sanitizedBase = base.replace(/\/$/, "");
+  const sanitizedPath = path.startsWith("/") ? path : `/${path}`;
   return `${sanitizedBase}${sanitizedPath}`;
 }
 
@@ -31,7 +31,7 @@ export default function ShareMenu({url, title, className}: ShareMenuProps) {
   const [clientOrigin, setClientOrigin] = useState<string | undefined>();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setClientOrigin(window.location.origin);
     }
   }, []);
@@ -51,17 +51,17 @@ export default function ShareMenu({url, title, className}: ShareMenuProps) {
     }
 
     function handleEsc(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setIsOpen(false);
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keyup', handleEsc);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keyup", handleEsc);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keyup', handleEsc);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keyup", handleEsc);
     };
   }, [isOpen]);
 
@@ -78,12 +78,12 @@ export default function ShareMenu({url, title, className}: ShareMenuProps) {
   }, [copied]);
 
   const handleToggle = async () => {
-    if (typeof navigator !== 'undefined' && navigator.share) {
+    if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({title, url: shareUrl});
         return;
       } catch (error) {
-        if ((error as Error).name === 'AbortError') {
+        if ((error as Error).name === "AbortError") {
           return;
         }
         // fall through to open menu
@@ -94,46 +94,46 @@ export default function ShareMenu({url, title, className}: ShareMenuProps) {
 
   const handleCopy = async () => {
     try {
-      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(shareUrl);
         setCopied(true);
       }
     } catch (error) {
-      console.error('Erro ao copiar link', error);
+      console.error("Erro ao copiar link", error);
     }
   };
 
   const shareOptions = [
     {
-      label: 'WhatsApp',
+      label: "WhatsApp",
       href: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${title} ${shareUrl}`)}`,
       icon: FaWhatsapp
     },
     {
-      label: 'Facebook',
+      label: "Facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
       icon: FaFacebookF
     },
     {
-      label: 'X (Twitter)',
+      label: "X (Twitter)",
       href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${title} ${shareUrl}`)}`,
       icon: FaXTwitter
     },
     {
-      label: 'LinkedIn',
+      label: "LinkedIn",
       href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(title)}`,
       icon: FaLinkedinIn
     }
   ];
 
-  const containerClasses = ['relative inline-flex', className].filter(Boolean).join(' ');
+  const containerClasses = ["relative inline-flex", className].filter(Boolean).join(" ");
 
   return (
     <div className={containerClasses} ref={containerRef}>
       <button
         type="button"
         onClick={handleToggle}
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-amber-400"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-400 text-neutral-900 transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-neutral-900"
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-label="Compartilhar post"
@@ -162,7 +162,7 @@ export default function ShareMenu({url, title, className}: ShareMenuProps) {
               className="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left text-sm text-white transition hover:bg-white/10"
             >
               {copied ? <LuCheck className="h-4 w-4" /> : <LuCopy className="h-4 w-4" />}
-              <span>{copied ? 'Link copiado!' : 'Copiar link'}</span>
+              <span>{copied ? "Link copiado!" : "Copiar link"}</span>
             </button>
           </div>
         </div>

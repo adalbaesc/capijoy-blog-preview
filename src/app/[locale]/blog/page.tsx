@@ -70,7 +70,7 @@ export default async function BlogIndex({params}: {params: Promise<Params>}) {
             </time>
             <h2 className="line-clamp-2 text-lg font-semibold">{post.title}</h2>
             <Link href={`/${locale}/blog/${post.slug}`} className="text-sm underline">
-              Ler post →
+              Ler postagem → 
             </Link>
           </div>
         </article>

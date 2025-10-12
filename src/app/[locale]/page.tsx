@@ -9,20 +9,20 @@ type Params = {locale: Locale};
 
 const MUSIC_CARDS = [
   {
-    title: 'Lançamento: BASTA.',
+    title: 'BASTA.',
     description:
       'Composta na década de 80, “BASTA.” ressurge com uma força impressionante para o cenário atual. Esta não é uma canção política; é um clamor da alma, um chamado para revolucionar nossos próprios corações e retornarmos aos Princípios de Deus. É um convite para dizer “basta” a tudo que nos afasta da verdade e do amor.',
     href: 'https://www.youtube.com/watch?v=6EVY-Ef8GRY',
-    cta: 'Assista ao clipe ?',
+    cta: 'Assista ao clipe',
     image: '/assets/capa_basta.webp',
     alt: 'Capa do single BASTA.'
   },
   {
-    title: 'Quer levar uma mensagem de fé e esperança com você durante o dia?',
+    title: 'Fé e esperança com você durante o dia',
     description:
-      'Me acompanhe no Spotify e adicione minhas músicas à sua playlist. Sua força lá é muito importante!',
+      'Me acompanhe no Spotify e adicione minhas músicas à sua playlist.',
     href: 'https://open.spotify.com/intl-pt/artist/6l2XVPCSpXi3oKheB3UvKI',
-    cta: 'Acompanhe no Spotify ?',
+    cta: 'Acompanhe no Spotify',
     image: '/assets/capi-joy-spotify.webp',
     alt: 'Arte promocional do Capí Joy no Spotify'
   },
@@ -31,14 +31,14 @@ const MUSIC_CARDS = [
     description:
       'Também estamos conectados por lá! Siga meu perfil e vamos juntos nessa jornada de música e fé.',
     href: 'https://music.apple.com/br/artist/cap%C3%AD-joy/1831439555',
-    cta: 'Siga na Apple Music ?',
+    cta: 'Siga na Apple Music',
     image: '/assets/capi-joy-apple-music.webp',
     alt: 'Arte promocional do Capí Joy na Apple Music'
   }
 ] as const;
 
 const CONFERENCE_TOPICS = [
-  'Mais do que um título, é uma jornada. Este projeto reúne reflexões sobre a ligação profunda entre liberdade e paz  dois estados que se completam e revelam a essência de viver de forma verdadeira. É um convite para respirar fundo, olhar para dentro e descobrir onde a encontramos descanso.',
+  'Aqui, cada palavra, canção e projeto nasce de um lugar real, humano e Divino. Este é um refúgio para quem busca leveza, verdade e inspiração pra viver com mais sentido.',
   'O Retorno. Uma história que não deveria ter sido contada. Um relato intenso, real e transformador. “O Retorno” não é apenas uma história, é um testemunho de escolhas, sentimentos e caminhos que marcaram profundamente a vida de Capí Joy. Escrito com transparência e coragem, este projeto literário mostra que até as histórias mais difíceis podem ensinar, libertar e inspirar outros.'
 ] as const;
 
@@ -126,7 +126,11 @@ export default async function Page({params}: {params: Promise<Params>}) {
             <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-20 sm:px-6 sm:pb-0 sm:pt-0">
               <div className="max-w-3xl space-y-5 text-white">
                 <h1 className="text-3xl font-extrabold sm:text-5xl">
-                  Liberdade e paz. Sem limites, sem medo, só ação. 
+                  LIBERDADE E PAZ.
+                  <br />
+                  Sem LIMITES, sem MEDO,
+                  <br />
+                  s&oacute; A&Ccedil;&Atilde;O.
                 </h1>
                 <p className="text-base text-white/90">
                   Bem-vindo ao espaço oficial de Capí Joy. Aqui, cada palavra, canção e projeto nasce de um lugar real, humano e Deus 
@@ -186,7 +190,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
         <div className="relative mx-auto w-full max-w-7xl space-y-6 text-white">
           <h2 className="text-3xl font-semibold">Palco Canção BASTA</h2>
           <p className="max-w-2xl text-sm opacity-90">
-            Um projeto visual e musical com energia intensa e alma livre. Imagino aqui Adalberto um palco moderno, fundo preto, luzes precisas e uma banda de rock vibrante. É assim que nasce o ambiente ideal para apresentar a canção &quot;BASTA&quot; — um grito de verdade e transformação. Cada detalhe foi pensado para transmitir força, emoção e autenticidade.
+            Um projeto visual e musical com energia intensa e alma livre. &quot;BASTA&quot; Um grito de verdade e transformação.
           </p>
           <div className="overflow-hidden rounded-3xl">
             <iframe
@@ -218,7 +222,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
       </section>
 
       <section id="conferencias" className="mx-auto w-full max-w-7xl space-y-6 px-4 py-10">
-        <h2 className="text-3xl font-semibold">LIBERDADE E PAZ — A CONEXÃO</h2>
+        <h2 className="text-3xl font-semibold">LIBERDADE E PAZ. A CONEXÃO</h2>
         <p className="max-w-3xl text-sm opacity-90">
         </p>
         <div className="grid gap-4 md:grid-cols-2">
@@ -271,7 +275,7 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
                 type="email"
                 name="email"
                 required
-                placeholder="Seu e-mail"
+                placeholder="Seu E-mail válido"
                 className="w-full rounded-lg border border-white/10 bg-white/90 px-4 py-2 text-sm font-sans text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-neutral-950"
               />
             </label>
@@ -293,13 +297,13 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
             </button>
           </form>
           <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-            <span className="font-medium">Telefone:</span>
+            <span className="font-medium">Telefone</span>
             <Link href="tel:+5537999091340" className="underline">
               +55 (37) 99909-1340
             </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-            <span className="font-medium">E-mail:</span>
+            <span className="font-medium">E-mail</span>
             <Link href="mailto:contato@capijoy.com.br" className="underline">
               contato@capijoy.com.br
             </Link>

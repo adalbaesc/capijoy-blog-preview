@@ -1,10 +1,10 @@
-﻿import Image from 'next/image';
-import Link from 'next/link';
-import ShareMenu from '@/components/site/ShareMenu';
-import {supabase} from '@/lib/supabase';
-import type {Locale} from '@/i18n/locales';
+import Image from "next/image";
+import Link from "next/link";
+import ShareMenu from "@/components/site/ShareMenu";
+import {supabase} from "@/lib/supabase";
+import type {Locale} from "@/i18n/locales";
 
-export const runtime = 'nodejs';
+export const runtime = "nodejs";
 export const revalidate = 0;
 
 type HomePostsProps = {
@@ -21,18 +21,19 @@ type Post = {
 };
 
 function formatDate(date: string, locale: Locale) {
-  return new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : locale === 'es' ? 'es-ES' : 'pt-BR', {
-    dateStyle: 'long'
-  }).format(new Date(date));
+  return new Intl.DateTimeFormat(
+    locale === "en" ? "en-US" : locale === "es" ? "es-ES" : "pt-BR",
+    {dateStyle: "long"}
+  ).format(new Date(date));
 }
 
 export default async function HomePosts({locale}: HomePostsProps) {
   const {data, error} = await supabase
-    .from('posts')
-    .select('id, title, slug, cover_image_url, published_at, status, locale')
-    .eq('locale', locale)
-    .eq('status', 'published')
-    .order('published_at', {ascending: false})
+    .from("posts")
+    .select("id, title, slug, cover_image_url, published_at, status, locale")
+    .eq("locale", locale)
+    .eq("status", "published")
+    .order("published_at", {ascending: false})
     .limit(3);
 
   if (error) {
@@ -49,7 +50,6 @@ export default async function HomePosts({locale}: HomePostsProps) {
     <div className="grid gap-6 md:grid-cols-3">
       {posts.map(post => (
         <article key={post.id} className="relative rounded-2xl bg-white/5 shadow">
-          <ShareMenu url={`/${locale}/blog/${post.slug}`} title={post.title} className="absolute right-3 top-3 z-10" />
           {post.cover_image_url ? (
             <div className="relative aspect-[16/9] w-full">
               <Image
@@ -70,18 +70,18 @@ export default async function HomePosts({locale}: HomePostsProps) {
               {formatDate(post.published_at, locale)}
             </time>
             <h4 className="line-clamp-2 font-semibold">{post.title}</h4>
-            <Link href={`/${locale}/blog/${post.slug}`} className="inline-block text-sm underline">
-              Ler post →
-            </Link>
+            <div className="flex items-center justify-between gap-3 pt-1">
+              <Link
+                href={`/${locale}/blog/${post.slug}`}
+                className="text-sm font-medium text-white underline underline-offset-4"
+              >
+                Ler postagem &rarr;
+              </Link>
+              <ShareMenu url={`/${locale}/blog/${post.slug}`} title={post.title} />
+            </div>
           </div>
         </article>
       ))}
     </div>
   );
 }
-
-
-
-
-
-
