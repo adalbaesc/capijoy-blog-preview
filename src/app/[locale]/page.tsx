@@ -133,7 +133,7 @@ export default async function Page({params}: {params: Promise<Params>}) {
                   s&oacute; A&Ccedil;&Atilde;O.
                 </h1>
                 <p className="text-base text-white/90">
-                  Bem-vindo ao espaço oficial de Capí Joy. Aqui, cada palavra, canção e projeto nasce de um lugar real, humano e Deus 
+                  Bem-vindo ao espaço oficial de Capí Joy. Aqui, cada palavra, canção e projeto nasce de um lugar real, humano e Divino 
 Este é um refúgio para quem busca leveza, verdade e inspiração para viver com mais sentido.
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -156,29 +156,44 @@ Este é um refúgio para quem busca leveza, verdade e inspiração para viver co
         </div>
       </section>
 
-      <section id="sobre" className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
-        <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-3xl bg-black/20 p-3 aspect-[3/4] sm:max-w-[380px] sm:p-4 lg:max-w-[420px]">
-          <Image
-            src="/assets/retrato-capi-joy.webp"
-            alt="Retrato de Capí Joy"
-            fill
-            className="object-contain"
-            sizes="(max-width: 1024px) 100vw, 40vw"
-          />
+      
+      
+      
+      
+      <section id="sobre" className="relative w-full overflow-hidden px-4 py-16">
+        <div className="pointer-events-none absolute inset-0 -z-20">
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-neutral-950/90 via-neutral-950/55 to-neutral-900/75" />
+          <div className="absolute inset-0 h-full w-full animate-aurora-spin bg-[conic-gradient(at_center,_rgba(255,213,0,0.28),_rgba(236,72,153,0.22),_rgba(56,189,248,0.22),_rgba(255,213,0,0.28))] blur-3xl opacity-40" />
+          <div className="absolute inset-0 h-full w-full bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22240%22 height=%22240%22 viewBox=%220 0 240 240%22%3E%3Cstyle%3Etext%7Bfill:%23ffffff;font-family:%27Segoe UI Symbol%27,%27Noto Sans Symbols%27,sans-serif;font-weight:600;%7D%3C/style%3E%3Ctext x=%2220%22 y=%2260%22 font-size=%2236%22%3E%E2%99%AA%3C/text%3E%3Ctext x=%22150%22 y=%2290%22 font-size=%2228%22%3E%E2%99%AB%3C/text%3E%3Ctext x=%2280%22 y=%22150%22 font-size=%2234%22%3E%E2%99%AC%3C/text%3E%3Ctext x=%22170%22 y=%22200%22 font-size=%2230%22%3E%E2%99%A9%3C/text%3E%3C/svg%3E')] bg-repeat bg-[length:180px_180px] opacity-10" />
         </div>
-        <div className="space-y-6 text-base leading-relaxed">
-          <h2 className="text-3xl font-semibold">Sou Capí Joy, compositor, escritor e artista independente.</h2>
-          <p>
-            Gosto de transformar sentimentos e experiências em palavras e músicas. Minha arte é simples, mas nasce de um lugar profundo, onde espiritualidade, humanidade e verdade se entrelaçam.
-          </p>
-          <p>
-            Escrevo para tocar corações, canto para libertar almas e crio para inspirar vidas mais leves e autênticas.
-          </p>
-          <p>
-            Meu propósito é compartilhar mensagens que despertem fé, esperança e liberdade interior porque acredito que a verdadeira paz começa dentro de nós.
-          </p>
+        <div className="relative mx-auto grid w-full max-w-7xl gap-10 rounded-3xl bg-neutral-950/30 px-6 py-10 backdrop-blur-sm lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
+          <div className="relative mx-auto w-full max-w-[360px] aspect-[3/4] overflow-hidden rounded-3xl bg-black/20 p-3 sm:max-w-[380px] sm:p-4 lg:max-w-[420px]">
+            <Image
+              src="/assets/retrato-capi-joy.webp"
+              alt="Retrato de Capí Joy"
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+          </div>
+          <div className="space-y-6 text-base leading-relaxed text-white/90">
+            <h2 className="text-3xl font-semibold text-white">Sou Capí Joy, compositor, escritor e artista independente.</h2>
+            <p>
+              Gosto de transformar sentimentos e experiências em palavras e músicas. Minha arte nasce de um lugar profundo, onde espiritualidade, humanidade e verdade se entrelaçam.
+            </p>
+            <p>
+              Escrevo para tocar corações, canto para libertar almas e crio para inspirar vidas mais leves e autênticas.
+            </p>
+            <p>
+              Meu propósito é compartilhar mensagens que despertem fé, esperança e liberdade interior, porque acredito que a verdadeira paz começa dentro de nós.
+            </p>
+          </div>
         </div>
       </section>
+
+
+
+
 
       <section id="musicas" className="relative w-full overflow-hidden px-4 py-10">
         <div

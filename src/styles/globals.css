@@ -1,3 +1,17 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 /* depois pode incluir resets/overrides */
 
+@layer utilities {
+  .animate-aurora-spin {
+    animation: aurora-spin 45s linear infinite;
+  }
+}
+
+@keyframes aurora-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
