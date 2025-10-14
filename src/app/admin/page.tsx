@@ -11,8 +11,8 @@ export default async function AdminPage() {
   const {data: posts, error} = await supabase
     .from('posts')
     .select('id, title, slug, status, locale, excerpt, cover_image_url, published_at, updated_at')
-    .order('published_at', {ascending: false, nullsLast: true})
-    .order('updated_at', {ascending: false, nullsLast: true});
+    .order('published_at', {ascending: false, nullsFirst: true})
+    .order('updated_at', {ascending: false, nullsFirst: true});
 
   if (error) {
     return (
