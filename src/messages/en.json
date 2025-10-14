@@ -5,12 +5,157 @@
     "music": "Music",
     "conferences": "Conferences",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "logoAlt": "Capí Joy logo"
   },
   "language": {
     "pt": "PT",
     "en": "EN",
     "es": "ES",
     "title": "Language"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "footer": {
+    "copyright": "© Capí Joy 2025 - All rights reserved.",
+    "socials": {
+      "youtube": "YouTube",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "facebook": "Facebook",
+      "spotify": "Spotify",
+      "apple": "Apple Music"
+    }
+  },
+  "homePosts": {
+    "error": "Error: {message}",
+    "empty": "No posts published yet.",
+    "coverUnavailable": "Cover unavailable",
+    "readPost": "Read post →"
+  },
+  "tiktok": {
+    "prev": "See previous videos",
+    "next": "See next videos",
+    "watchOn": "Watch on TikTok",
+    "coverUnavailable": "Cover unavailable",
+    "fallback": {
+      "basta": "Basta message",
+      "spotify": "Capí Joy on Spotify",
+      "inspire": "Capí Joy inspires",
+      "hope": "Word of hope"
+    },
+    "watchAria": "Watch {title} on TikTok"
+  },
+  "home": {
+    "hero": {
+      "lines": [
+        "FREEDOM AND PEACE.",
+        "No LIMITS, no FEAR,",
+        "only ACTION."
+      ],
+      "description": "Welcome to Capí Joy's official space. Here, every word, song and project is born from a real, human and divine place. This is a refuge for those who seek lightness, truth and inspiration to live with more meaning.",
+      "ctaPrimary": "Listen, read, feel.",
+      "ctaSupport": "And walk with me on this journey where freedom and peace meet.",
+      "ctaVideo": "Watch the \"BASTA.\" video.",
+      "bannerAlt": "Capí Joy performing"
+    },
+    "about": {
+      "title": "I'm Capí Joy, songwriter, writer and independent artist.",
+      "paragraphs": [
+        "I love turning feelings and experiences into words and songs. My art is born from a deep place where spirituality, humanity and truth intertwine.",
+        "I write to touch hearts, sing to set souls free and create to inspire lighter, more authentic lives.",
+        "My purpose is to share messages that awaken faith, hope and inner freedom, because I believe true peace begins within us."
+      ],
+      "imageAlt": "Portrait of Capí Joy"
+    },
+    "music": {
+      "title": "BASTA Stage",
+      "description": "A visual and musical project filled with intense energy and a free soul. \"BASTA\" is a cry of truth and transformation.",
+      "videoTitle": "Watch the BASTA clip",
+      "cards": {
+        "card1": {
+          "title": "ENOUGH.",
+          "description": "Composed in the 80s, \"ENOUGH.\" re-emerges with remarkable strength for today's world. It's not a political song; it's a cry of the soul, a call to transform our own hearts and return to God's principles. It's an invitation to say \"enough\" to everything that pulls us away from truth and love.",
+          "cta": "Watch the video",
+          "alt": "Cover art for the single ENOUGH."
+        },
+        "card2": {
+          "title": "Faith and hope with you through the day",
+          "description": "Follow me on Spotify and add my songs to your playlist.",
+          "cta": "Follow on Spotify",
+          "alt": "Promotional artwork of Capí Joy on Spotify"
+        },
+        "card3": {
+          "title": "For those who love listening on Apple Music",
+          "description": "We're connected there too! Follow my profile and let's journey together in music and faith.",
+          "cta": "Follow on Apple Music",
+          "alt": "Promotional artwork of Capí Joy on Apple Music"
+        }
+      }
+    },
+    "conferences": {
+      "title": "FREEDOM AND PEACE. THE CONNECTION.",
+      "lead": "Immersions that connect art, faith and purpose.",
+      "topics": {
+        "topic1": "Here, every word, song and project is born from a real, human and Divine place. This is a refuge for those seeking lightness, truth and inspiration to live with greater meaning.",
+        "topic2": "The Return. A story that should never have been told. An intense, real and transforming account. \"The Return\" is not just a story, it is a testimony of choices, feelings and paths that deeply marked Capí Joy's life. Written with transparency and courage, this literary project shows that even the hardest stories can teach, set free and inspire others."
+      }
+    },
+    "blog": {
+      "title": "Blog / Reflections",
+      "description": "A devotional series in three languages, written in a practical and direct way. From Psalm 19, Capí Joy reveals five spiritual keys to live with purpose and reach true success. It begins in the soul and overflows into life."
+    },
+    "social": {
+      "title": "Follow, like and share on our social media"
+    },
+    "contact": {
+      "title": "Want to talk with Capí Joy?",
+      "description": "Use the form below to send your message, invitation or testimony. You can also follow on social media to stay up to date with releases, reflections and events.",
+      "form": {
+        "nameLabel": "Name",
+        "namePlaceholder": "How should we call you?",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Your email",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Share your message",
+        "submit": "Send message"
+      },
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "whatsCta": "Let's talk."
+    }
+  },
+  "shareMenu": {
+    "buttonAria": "Share post",
+    "title": "Share",
+    "copy": "Copy link",
+    "copied": "Link copied!",
+    "options": {
+      "whatsapp": "WhatsApp",
+      "facebook": "Facebook",
+      "x": "X (Twitter)",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Capijoy Blog",
+      "description": "Read the latest posts from the Capijoy blog and get inspired by faith-filled reflections."
+    },
+    "list": {
+      "error": "Error: {message}",
+      "empty": "No posts published yet.",
+      "coverUnavailable": "Cover unavailable",
+      "readPost": "Read post →"
+    }
+  },
+  "blogPost": {
+    "notAvailableTitle": "Post unavailable",
+    "notAvailableDescription": "This post is no longer available.",
+    "fallbackDescription": "Read \"{title}\" and discover exclusive reflections on Capijoy's blog."
   }
 }

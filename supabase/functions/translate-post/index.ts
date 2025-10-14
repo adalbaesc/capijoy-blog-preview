@@ -1,3 +1,5 @@
+/// <reference path="../types.d.ts" />
+import type { Handler } from "https://deno.land/std@0.168.0/http/server.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.44.4";
 
@@ -6,7 +8,7 @@ const supabaseAdmin = createClient(
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
 );
 
-const translate = async (text: string, lang: string) => {
+const translate = async (text: string, lang: string): Promise<string> => {
   if (!text) return "";
   const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=pt|${lang}`;
   const response = await fetch(url);
@@ -18,8 +20,19 @@ const translate = async (text: string, lang: string) => {
   return json.responseData.translatedText;
 };
 
-serve(async (req) => {
-  const { record: post } = await req.json();
+const handler: Handler = async (req) => {
+  const payload = await req.json() as { record?: Record<string, unknown> };
+  const post = payload.record as {
+    locale?: string;
+    title?: string;
+    excerpt?: string;
+    content_html?: string;
+    [key: string]: unknown;
+  };
+
+  if (!post) {
+    return new Response(JSON.stringify({ message: 'Missing post data' }), { status: 400 });
+  }
 
   if (post.locale !== 'pt') {
     return new Response(JSON.stringify({ message: 'Post is not in Portuguese, skipping translation' }), { status: 200 });
@@ -33,9 +46,9 @@ serve(async (req) => {
       await new Promise(resolve => setTimeout(resolve, 200));
 
       const [translatedTitle, translatedExcerpt, translatedContent] = await Promise.all([
-        translate(post.title, lang),
-        translate(post.excerpt, lang),
-        translate(post.content_html, lang)
+        translate(post.title ?? '', lang),
+        translate(post.excerpt ?? '', lang),
+        translate(post.content_html ?? '', lang)
       ]);
 
       const { error } = await supabaseAdmin.from('posts').insert({
@@ -58,6 +71,9 @@ serve(async (req) => {
 
   } catch (error) {
     console.error('Translation process failed:', error);
-    return new Response(JSON.stringify({ message: error.message }), { status: 500 });
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return new Response(JSON.stringify({ message }), { status: 500 });
   }
-});
+};
+
+serve(handler);

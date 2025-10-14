@@ -1,3 +1,5 @@
+/// <reference path="../types.d.ts" />
+import type { Handler } from "https://deno.land/std@0.168.0/http/server.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { Image } from "https://deno.land/x/imagescript@1.2.15/mod.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.44.4";
@@ -7,9 +9,13 @@ const supabaseAdmin = createClient(
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
 );
 
-serve(async (req) => {
-  const { record } = await req.json();
-  const { name, bucket_id } = record.object;
+const handler: Handler = async (req) => {
+  const payload = await req.json() as { record?: { object?: { name?: string; bucket_id?: string } } };
+  const { name, bucket_id } = payload.record?.object ?? {};
+
+  if (!name || !bucket_id) {
+    return new Response(JSON.stringify({ message: "Missing object information" }), { status: 400 });
+  }
 
   if (bucket_id !== 'post-images-raw') {
     return new Response(JSON.stringify({ message: 'Wrong bucket' }), { status: 400 });
@@ -24,7 +30,8 @@ serve(async (req) => {
       throw downloadError;
     }
 
-    const image = await Image.decode(await blob.arrayBuffer());
+    const buffer = await blob.arrayBuffer();
+    const image = await Image.decode(buffer);
 
     // Resize, compress and convert to WebP
     image.resize(800, Image.RESIZE_AUTO);
@@ -53,6 +60,9 @@ serve(async (req) => {
     return new Response(JSON.stringify({ message: 'Image optimized and updated' }), { status: 200 });
 
   } catch (error) {
-    return new Response(JSON.stringify({ message: error.message }), { status: 500 });
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return new Response(JSON.stringify({ message }), { status: 500 });
   }
-});
+};
+
+serve(handler);

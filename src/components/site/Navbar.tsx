@@ -20,7 +20,7 @@ export default function Navbar({locale}: {locale: Locale}) {
   const t = useTranslations('nav');
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur dark:bg-neutral-950/70">
+    <header className="sticky top-0 z-40 bg-[var(--header-bg)] shadow-sm backdrop-blur">
       <div className="mx-auto flex w-full max-w-7xl items-center gap-6 px-4 py-3">
         <Link href={`/${locale}`} className="flex items-center gap-2" aria-label={t('home')}>
           <Image src="/assets/logo.svg" alt="Logotipo Capí Joy" width={120} height={28} priority className="h-8 w-auto" />

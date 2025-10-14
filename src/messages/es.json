@@ -1,16 +1,161 @@
-﻿{
+{
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
     "music": "Música",
     "conferences": "Conferencias",
     "blog": "Blog",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "logoAlt": "Logotipo Capí Joy"
   },
   "language": {
     "pt": "PT",
     "en": "EN",
     "es": "ES",
     "title": "Idioma"
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "footer": {
+    "copyright": "© Capí Joy 2025 - Todos los derechos reservados.",
+    "socials": {
+      "youtube": "YouTube",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "facebook": "Facebook",
+      "spotify": "Spotify",
+      "apple": "Apple Music"
+    }
+  },
+  "homePosts": {
+    "error": "Error: {message}",
+    "empty": "Aún no hay publicaciones publicadas.",
+    "coverUnavailable": "Portada no disponible",
+    "readPost": "Leer publicación →"
+  },
+  "tiktok": {
+    "prev": "Ver videos anteriores",
+    "next": "Ver próximos videos",
+    "watchOn": "Ver en TikTok",
+    "coverUnavailable": "Portada no disponible",
+    "fallback": {
+      "basta": "Mensaje Basta",
+      "spotify": "Capí Joy en Spotify",
+      "inspire": "Capí Joy inspira",
+      "hope": "Palabra de esperanza"
+    },
+    "watchAria": "Ver {title} en TikTok"
+  },
+  "home": {
+    "hero": {
+      "lines": [
+        "LIBERTAD Y PAZ.",
+        "Sin LÍMITES, sin MIEDO,",
+        "solo ACCIÓN."
+      ],
+      "description": "Bienvenido al espacio oficial de Capí Joy. Aquí, cada palabra, canción y proyecto nace de un lugar real, humano y divino. Este es un refugio para quienes buscan ligereza, verdad e inspiración para vivir con más sentido.",
+      "ctaPrimary": "Escucha, lee, siente.",
+      "ctaSupport": "Y camina conmigo en este viaje donde la libertad y la paz se encuentran.",
+      "ctaVideo": "Mira el videoclip \"BASTA.\"",
+      "bannerAlt": "Capí Joy en el escenario"
+    },
+    "about": {
+      "title": "Soy Capí Joy, compositor, escritor y artista independiente.",
+      "paragraphs": [
+        "Me gusta transformar sentimientos y experiencias en palabras y canciones. Mi arte nace de un lugar profundo donde se entrelazan espiritualidad, humanidad y verdad.",
+        "Escribo para tocar corazones, canto para liberar almas y creo para inspirar vidas más ligeras y auténticas.",
+        "Mi propósito es compartir mensajes que despierten fe, esperanza y libertad interior, porque creo que la verdadera paz comienza dentro de nosotros."
+      ],
+      "imageAlt": "Retrato de Capí Joy"
+    },
+    "music": {
+      "title": "Escenario Canción BASTA",
+      "description": "Un proyecto visual y musical con energía intensa y alma libre. \"BASTA\" es un grito de verdad y transformación.",
+      "videoTitle": "Mira el videoclip BASTA",
+      "cards": {
+        "card1": {
+          "title": "BASTA.",
+          "description": "Compuesta en los años 80, \"BASTA.\" resurge con una fuerza impresionante para el momento actual. No es una canción política; es un clamor del alma, un llamado a revolucionar nuestros corazones y volver a los Principios de Dios. Es una invitación a decir \"basta\" a todo lo que nos aleja de la verdad y del amor.",
+          "cta": "Ver el videoclip",
+          "alt": "Portada del sencillo BASTA."
+        },
+        "card2": {
+          "title": "Fe y esperanza contigo durante el día",
+          "description": "Acompáñame en Spotify y agrega mis canciones a tu lista de reproducción.",
+          "cta": "Seguir en Spotify",
+          "alt": "Arte promocional de Capí Joy en Spotify"
+        },
+        "card3": {
+          "title": "Para quienes disfrutan escuchar en Apple Music",
+          "description": "También estamos conectados allí. Sigue mi perfil y caminemos juntos en esta jornada de música y fe.",
+          "cta": "Seguir en Apple Music",
+          "alt": "Arte promocional de Capí Joy en Apple Music"
+        }
+      }
+    },
+    "conferences": {
+      "title": "LIBERTAD Y PAZ. LA CONEXIÓN.",
+      "lead": "Inmersiones que conectan arte, fe y propósito.",
+      "topics": {
+        "topic1": "Aquí, cada palabra, canción y proyecto nace de um lugar real, humano y Divino. Este es un refugio para quienes buscan ligereza, verdad e inspiración para vivir con más sentido.",
+        "topic2": "El Retorno. Una historia que no debería haberse contado. Un relato intenso, real y transformador. \"El Retorno\" no es solo una historia, es un testimonio de elecciones, sentimientos y caminos que marcaron profundamente la vida de Capí Joy. Escrito con transparencia y valentía, este proyecto literario muestra que incluso las historias más difíciles pueden enseñar, liberar e inspirar a otros."
+      }
+    },
+    "blog": {
+      "title": "Blog / Reflexiones",
+      "description": "Una serie devocional en tres idiomas, escrita de forma práctica y directa. A partir del Salmo 19, Capí Joy revela cinco claves espirituales para vivir con propósito y alcanzar un éxito verdadero. Ese que comienza en el alma y desborda en la vida."
+    },
+    "social": {
+      "title": "Sigue, dale me gusta y comparte en nuestras redes sociales"
+    },
+    "contact": {
+      "title": "¿Quieres hablar con Capí Joy?",
+      "description": "Usa el formulario a continuación para enviar tu mensaje, invitación o testimonio. También puedes seguir en las redes sociales para enterarte de lanzamientos, reflexiones y eventos.",
+      "form": {
+        "nameLabel": "Nombre",
+        "namePlaceholder": "¿Cómo debemos llamarte?",
+        "emailLabel": "Correo",
+        "emailPlaceholder": "Tu correo",
+        "messageLabel": "Mensaje",
+        "messagePlaceholder": "Comparte tu mensaje",
+        "submit": "Enviar mensaje"
+      },
+      "phoneLabel": "Teléfono",
+      "emailLabel": "Correo",
+      "whatsCta": "Hablemos."
+    }
+  },
+  "shareMenu": {
+    "buttonAria": "Compartir publicación",
+    "title": "Compartir",
+    "copy": "Copiar enlace",
+    "copied": "¡Enlace copiado!",
+    "options": {
+      "whatsapp": "WhatsApp",
+      "facebook": "Facebook",
+      "x": "X (Twitter)",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog Capijoy",
+      "description": "Lee las últimas publicaciones del blog de Capijoy e inspírate con reflexiones de fe."
+    },
+    "list": {
+      "error": "Error: {message}",
+      "empty": "Aún no hay publicaciones.",
+      "coverUnavailable": "Portada no disponible",
+      "readPost": "Leer publicación →"
+    }
+  },
+  "blogPost": {
+    "notAvailableTitle": "Publicación no disponible",
+    "notAvailableDescription": "Esta publicación ya no está disponible.",
+    "fallbackDescription": "Lee \"{title}\" y descubre reflexiones exclusivas en el blog de Capijoy."
   }
 }

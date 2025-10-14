@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 import {useEffect, useMemo, useRef, useState} from 'react';
 
 export type TikTokVideo = {
@@ -20,6 +21,7 @@ function extractVideoId(url: string): string | null {
 }
 
 export default function TikTokCarousel({videos}: TikTokCarouselProps) {
+  const t = useTranslations('tiktok');
   const containerRef = useRef<HTMLDivElement>(null);
   const [covers, setCovers] = useState<Record<string, string>>({});
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -150,7 +152,7 @@ export default function TikTokCarousel({videos}: TikTokCarouselProps) {
           type="button"
           onClick={() => scrollByDirection('prev')}
           className="hidden h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lg text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 disabled:pointer-events-none disabled:opacity-30 md:flex"
-          aria-label="Ver videos anteriores"
+          aria-label={t('prev')}
           disabled={!canScrollLeft}
         >
           <span aria-hidden="true">&#8249;</span>
@@ -166,6 +168,7 @@ export default function TikTokCarousel({videos}: TikTokCarouselProps) {
             }
             const cover = video.cover ?? covers[videoId];
             const title = video.title ?? `TikTok video ${videoId}`;
+            const ariaLabel = t('watchAria', {title});
 
             return (
               <article key={videoId} className="snap-center">
@@ -174,7 +177,7 @@ export default function TikTokCarousel({videos}: TikTokCarouselProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex w-[260px] flex-col gap-3 sm:w-[300px]"
-                  aria-label={`Assistir ${title} no TikTok`}
+                  aria-label={ariaLabel}
                 >
                   <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-black/40">
                     {cover ? (
@@ -188,7 +191,7 @@ export default function TikTokCarousel({videos}: TikTokCarouselProps) {
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-white/10 text-sm text-white/60">
-                        Capa indisponivel
+                        {t('coverUnavailable')}
                       </div>
                     )}
                     <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/20 transition group-hover:bg-black/10">
@@ -198,7 +201,7 @@ export default function TikTokCarousel({videos}: TikTokCarouselProps) {
                     </div>
                   </div>
                   <span className="text-center text-sm font-medium text-amber-400 underline-offset-4 transition group-hover:text-amber-300 group-hover:underline">
-                    Assistir no TikTok
+                    {t('watchOn')}
                   </span>
                 </a>
               </article>
@@ -209,7 +212,7 @@ export default function TikTokCarousel({videos}: TikTokCarouselProps) {
           type="button"
           onClick={() => scrollByDirection('next')}
           className="hidden h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lg text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 disabled:pointer-events-none disabled:opacity-30 md:flex"
-          aria-label="Ver proximos videos"
+          aria-label={t('next')}
           disabled={!canScrollRight}
         >
           <span aria-hidden="true">&#8250;</span>

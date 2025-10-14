@@ -1,16 +1,161 @@
-﻿{
+{
   "nav": {
-    "home": "Início",
+    "home": "In\u00edcio",
     "about": "Sobre",
-    "music": "Músicas",
-    "conferences": "Conferências",
+    "music": "M\u00fasicas",
+    "conferences": "Confer\u00eancias",
     "blog": "Blog",
-    "contact": "Contato"
+    "contact": "Contato",
+    "logoAlt": "Logotipo Cap\u00ed Joy"
   },
   "language": {
     "pt": "PT",
     "en": "EN",
     "es": "ES",
     "title": "Idioma"
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "footer": {
+    "copyright": "\u00a9 Cap\u00ed Joy 2025 - Todos os direitos reservados.",
+    "socials": {
+      "youtube": "YouTube",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "facebook": "Facebook",
+      "spotify": "Spotify",
+      "apple": "Apple Music"
+    }
+  },
+  "homePosts": {
+    "error": "Erro: {message}",
+    "empty": "Nenhuma postagem publicada ainda.",
+    "coverUnavailable": "Capa indispon\u00edvel",
+    "readPost": "Ler postagem \u2192"
+  },
+  "tiktok": {
+    "prev": "Ver v\u00eddeos anteriores",
+    "next": "Ver pr\u00f3ximos v\u00eddeos",
+    "watchOn": "Assistir no TikTok",
+    "coverUnavailable": "Capa indispon\u00edvel",
+    "fallback": {
+      "basta": "Mensagem Basta",
+      "spotify": "Cap\u00ed Joy no Spotify",
+      "inspire": "Cap\u00ed Joy inspira",
+      "hope": "Palavra de esperan\u00e7a"
+    },
+    "watchAria": "Assistir {title} no TikTok"
+  },
+  "home": {
+    "hero": {
+      "lines": [
+        "LIBERDADE E PAZ.",
+        "Sem LIMITES, sem MEDO,",
+        "s\u00f3 A\u00c7\u00c3O."
+      ],
+      "description": "Bem-vindo ao espa\u00e7o oficial de Cap\u00ed Joy. Aqui, cada palavra, can\u00e7\u00e3o e projeto nasce de um lugar real, humano e divino. Este \u00e9 um ref\u00fagio para quem busca leveza, verdade e inspira\u00e7\u00e3o para viver com mais sentido.",
+      "ctaPrimary": "Ou\u00e7a, leia, sinta.",
+      "ctaSupport": "E caminhe comigo nessa jornada onde a liberdade e a paz se encontram.",
+      "ctaVideo": "Assista ao clipe \"BASTA.\"",
+      "bannerAlt": "Cap\u00ed Joy se apresentando"
+    },
+    "about": {
+      "title": "Sou Cap\u00ed Joy, compositor, escritor e artista independente.",
+      "paragraphs": [
+        "Gosto de transformar sentimentos e experi\u00eancias em palavras e m\u00fasicas. Minha arte nasce de um lugar profundo, onde espiritualidade, humanidade e verdade se entrela\u00e7am.",
+        "Escrevo para tocar cora\u00e7\u00f5es, canto para libertar almas e crio para inspirar vidas mais leves e aut\u00eanticas.",
+        "Meu prop\u00f3sito \u00e9 compartilhar mensagens que despertem f\u00e9, esperan\u00e7a e liberdade interior, porque acredito que a verdadeira paz come\u00e7a dentro de n\u00f3s."
+      ],
+      "imageAlt": "Retrato de Cap\u00ed Joy"
+    },
+    "music": {
+      "title": "Palco Can\u00e7\u00e3o BASTA",
+      "description": "Um projeto visual e musical com energia intensa e alma livre. \"BASTA\" \u00e9 um grito de verdade e transforma\u00e7\u00e3o.",
+      "videoTitle": "Assista ao clipe BASTA",
+      "cards": {
+        "card1": {
+          "title": "BASTA.",
+          "description": "Composta na d\u00e9cada de 80, \"BASTA.\" ressurge com uma for\u00e7a impressionante para o cen\u00e1rio atual. Esta n\u00e3o \u00e9 uma can\u00e7\u00e3o pol\u00edtica; \u00e9 um clamor da alma, um chamado para revolucionar nossos pr\u00f3prios cora\u00e7\u00f5es e retornarmos aos Princ\u00edpios de Deus. \u00c9 um convite para dizer \"basta\" a tudo que nos afasta da verdade e do amor.",
+          "cta": "Assista ao clipe",
+          "alt": "Capa do single BASTA."
+        },
+        "card2": {
+          "title": "F\u00e9 e esperan\u00e7a com voc\u00ea durante o dia",
+          "description": "Me acompanhe no Spotify e adicione minhas m\u00fasicas \u00e0 sua playlist.",
+          "cta": "Acompanhe no Spotify",
+          "alt": "Arte promocional do Cap\u00ed Joy no Spotify"
+        },
+        "card3": {
+          "title": "Para quem curte ouvir m\u00fasica pela Apple Music",
+          "description": "Tamb\u00e9m estamos conectados por l\u00e1! Siga meu perfil e vamos juntos nessa jornada de m\u00fasica e f\u00e9.",
+          "cta": "Siga na Apple Music",
+          "alt": "Arte promocional do Cap\u00ed Joy na Apple Music"
+        }
+      }
+    },
+    "conferences": {
+      "title": "LIBERDADE E PAZ. A CONEX\u00c3O.",
+      "lead": "Imers\u00f5es que conectam arte, f\u00e9 e prop\u00f3sito.",
+      "topics": {
+        "topic1": "Aqui, cada palavra, can\u00e7\u00e3o e projeto nasce de um lugar real, humano e Divino. Este \u00e9 um ref\u00fagio para quem busca leveza, verdade e inspira\u00e7\u00e3o pra viver com mais sentido.",
+        "topic2": "O Retorno. Uma hist\u00f3ria que n\u00e3o deveria ter sido contada. Um relato intenso, real e transformador. \"O Retorno\" n\u00e3o \u00e9 apenas uma hist\u00f3ria, \u00e9 um testemunho de escolhas, sentimentos e caminhos que marcaram profundamente a vida de Cap\u00ed Joy. Escrito com transpar\u00eancia e coragem, este projeto liter\u00e1rio mostra que at\u00e9 as hist\u00f3rias mais dif\u00edceis podem ensinar, libertar e inspirar outros."
+      }
+    },
+    "blog": {
+      "title": "Blog / Reflex\u00f5es",
+      "description": "Uma s\u00e9rie devocional em tr\u00eas idiomas, escrita de forma pr\u00e1tica e direta. A partir do Salmo 19, Cap\u00ed Joy revela cinco chaves espirituais para viver com prop\u00f3sito e alcan\u00e7ar sucesso verdadeiro. Aquele que come\u00e7a na alma e transborda na vida."
+    },
+    "social": {
+      "title": "Siga, curta e compartilhe nas nossas redes sociais"
+    },
+    "contact": {
+      "title": "Quer falar com Cap\u00ed Joy?",
+      "description": "Use o formul\u00e1rio abaixo para enviar sua mensagem, convite ou testemunho. Voc\u00ea tamb\u00e9m pode acompanhar pelas redes sociais para ficar por dentro dos lan\u00e7amentos, reflex\u00f5es e eventos.",
+      "form": {
+        "nameLabel": "Nome",
+        "namePlaceholder": "Como devemos te chamar?",
+        "emailLabel": "E-mail",
+        "emailPlaceholder": "Seu e-mail",
+        "messageLabel": "Mensagem",
+        "messagePlaceholder": "Compartilhe sua mensagem",
+        "submit": "Enviar mensagem"
+      },
+      "phoneLabel": "Telefone",
+      "emailLabel": "E-mail",
+      "whatsCta": "Vamos conversar."
+    }
+  },
+  "shareMenu": {
+    "buttonAria": "Compartilhar post",
+    "title": "Compartilhar",
+    "copy": "Copiar link",
+    "copied": "Link copiado!",
+    "options": {
+      "whatsapp": "WhatsApp",
+      "facebook": "Facebook",
+      "x": "X (Twitter)",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog Capijoy",
+      "description": "Leia as publica\u00e7\u00f5es mais recentes do blog Capijoy e inspire-se com reflex\u00f5es de f\u00e9 e transforma\u00e7\u00e3o."
+    },
+    "list": {
+      "error": "Erro: {message}",
+      "empty": "Nenhuma postagem publicada ainda.",
+      "coverUnavailable": "Capa indispon\u00edvel",
+      "readPost": "Ler postagem \u2192"
+    }
+  },
+  "blogPost": {
+    "notAvailableTitle": "Postagem indispon\u00edvel",
+    "notAvailableDescription": "Esta postagem n\u00e3o est\u00e1 mais dispon\u00edvel.",
+    "fallbackDescription": "Leia \"{title}\" e descubra reflex\u00f5es exclusivas no blog Capijoy."
   }
 }

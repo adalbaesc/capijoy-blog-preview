@@ -17,38 +17,55 @@ export async function createPost(_prevState: CreatePostState, formData: FormData
   const sanitizedSlug = slugify(typeof slugInput === 'string' && slugInput ? slugInput : typeof title === 'string' ? title : '');
   const excerpt = formData.get('excerpt');
   const contentHtml = formData.get('content_html');
-  const coverImage = formData.get('cover_image');
+  const coverImageValue = formData.get('cover_image');
+  const intent = formData.get('intent') === 'draft' ? 'draft' : 'publish';
+  const locale = 'pt';
 
-  if (typeof title !== 'string' || !title || typeof contentHtml !== 'string' || !(coverImage instanceof File) || !sanitizedSlug) {
-    return { message: 'Title, slug, content and cover image are required' };
+  if (typeof title !== 'string' || !title || typeof contentHtml !== 'string' || !sanitizedSlug) {
+    return { message: 'Title, slug and content are required' };
   }
 
-  const fileExtension = coverImage.name.includes('.') ? coverImage.name.split('.').pop() : undefined;
-  const baseName = coverImage.name.replace(/\.[^.]+$/, '');
-  const cleanBase = baseName
-    .normalize('NFD')
-    .replace(/[^\w\s-]/g, '')
-    .trim()
-    .replace(/[\s_]+/g, '-')
-    .toLowerCase();
-  const uniqueFileName = `${cleanBase || 'image'}-${Date.now()}${fileExtension ? `.${fileExtension.toLowerCase()}` : ''}`;
+  const coverImageFile = coverImageValue instanceof File && coverImageValue.size > 0 ? coverImageValue : null;
 
-  const bucket = 'public-post-images';
-  const { error: imageError } = await supabase.storage
-    .from(bucket)
-    .upload(uniqueFileName, coverImage, {
-      cacheControl: '3600',
-      upsert: false
-    });
-
-  if (imageError) {
-    return { message: `Failed to upload image: ${imageError.message}` };
+  if (intent === 'publish' && !coverImageFile) {
+    return { message: 'Cover image is required to publish' };
   }
 
-  const { data: publicUrlData } = supabase.storage.from(bucket).getPublicUrl(uniqueFileName);
-  const publicUrl = publicUrlData?.publicUrl ?? null;
+  let publicUrl: string | null = null;
+  let uploadedFilePath: string | null = null;
 
-  const { error: postError } = await supabase
+  if (coverImageFile) {
+    const fileExtension = coverImageFile.name.includes('.') ? coverImageFile.name.split('.').pop() : undefined;
+    const baseName = coverImageFile.name.replace(/\.[^.]+$/, '');
+    const cleanBase = baseName
+      .normalize('NFD')
+      .replace(/[^\w\s-]/g, '')
+      .trim()
+      .replace(/[\s_]+/g, '-')
+      .toLowerCase();
+    const uniqueFileName = `${cleanBase || 'image'}-${Date.now()}${fileExtension ? `.${fileExtension.toLowerCase()}` : ''}`;
+
+    const bucket = 'public-post-images';
+    const {error: imageError} = await supabase.storage
+      .from(bucket)
+      .upload(uniqueFileName, coverImageFile, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (imageError) {
+      return {message: `Failed to upload image: ${imageError.message}`};
+    }
+
+    const {data: publicUrlData} = supabase.storage.from(bucket).getPublicUrl(uniqueFileName);
+    publicUrl = publicUrlData?.publicUrl ?? null;
+    uploadedFilePath = uniqueFileName;
+  }
+
+  const now = new Date().toISOString();
+  const isPublish = intent === 'publish';
+
+  const {error: postError} = await supabase
     .from('posts')
     .insert([
       {
@@ -56,19 +73,27 @@ export async function createPost(_prevState: CreatePostState, formData: FormData
         slug: sanitizedSlug,
         excerpt: typeof excerpt === 'string' ? excerpt : null,
         content_html: contentHtml,
-        locale: 'pt',
-        status: 'published',
-        published_at: new Date().toISOString(),
-        cover_image_url: publicUrl,
-      },
+        locale,
+        status: isPublish ? 'published' : 'draft',
+        published_at: isPublish ? now : null,
+        cover_image_url: publicUrl
+      }
     ]);
 
   if (postError) {
-    return { message: `Failed to create post: ${postError.message}` };
+    if (uploadedFilePath) {
+      await supabase.storage.from('public-post-images').remove([uploadedFilePath]);
+    }
+    return {message: `Failed to create post: ${postError.message}`};
   }
 
-  revalidatePath('/blog');
-  revalidatePath(`/blog/${sanitizedSlug}`);
+  const blogBasePath = `/${locale}/blog`;
+
+  revalidatePath('/admin');
+  if (isPublish) {
+    revalidatePath(blogBasePath);
+    revalidatePath(`${blogBasePath}/${sanitizedSlug}`);
+  }
 
   redirect('/admin');
 }

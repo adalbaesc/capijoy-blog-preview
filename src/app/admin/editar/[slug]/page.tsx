@@ -1,5 +1,5 @@
 import {createServerClient} from '@/lib/supabaseServer';
-import EditPostForm from '@/components/EditPostForm';
+import EditPostForm from '../EditPostForm';
 import {notFound} from 'next/navigation';
 
 export default async function EditPostPage({params}: {params: Promise<{slug: string}>}) {
