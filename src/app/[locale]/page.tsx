@@ -303,7 +303,7 @@ export default async function Page({params}: {params: Promise<Params>}) {
           </form>
           <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
             <span className="font-medium">{homeT('contact.phoneLabel')}:</span>
-            <Link href="tel:+5537999091340" className="underline">
+            <Link href="tel:+5537998765452" className="underline">
               +55 (37) 99876-5452
             </Link>
           </div>
@@ -314,7 +314,7 @@ export default async function Page({params}: {params: Promise<Params>}) {
             </Link>
           </div>
           <Link
-            href="https://api.whatsapp.com/send?phone=5537999091340"
+            href="https://api.whatsapp.com/send?phone=5537998765452"
             target="_blank"
             rel="noopener noreferrer"
             className="surface-button inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition"
