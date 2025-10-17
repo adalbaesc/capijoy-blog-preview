@@ -85,6 +85,11 @@ export async function updatePost(postId: string, _prevState: UpdatePostState, fo
   } else if (intent === 'draft') {
     nextStatus = 'draft';
     nextPublishedAt = null;
+  } else {
+    nextStatus = 'published';
+    if (!previousPublishedAt) {
+      nextPublishedAt = new Date().toISOString();
+    }
   }
 
   if (intent === 'publish') {

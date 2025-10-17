@@ -74,8 +74,8 @@ export async function createPost(_prevState: CreatePostState, formData: FormData
         excerpt: typeof excerpt === 'string' ? excerpt : null,
         content_html: contentHtml,
         locale,
-        status: isPublish ? 'published' : 'draft',
-        published_at: isPublish ? now : null,
+        status: 'published',
+        published_at: now,
         cover_image_url: publicUrl
       }
     ]);
