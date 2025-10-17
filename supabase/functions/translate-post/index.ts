@@ -52,7 +52,15 @@ const handler: Handler = async (req) => {
     return new Response(JSON.stringify({ message: 'Post is not in Portuguese, skipping translation' }), { status: 200 });
   }
 
+  if (!post.slug || typeof post.slug !== 'string') {
+    return new Response(JSON.stringify({ message: 'Post slug is required for translation' }), { status: 400 });
+  }
+
   const targetLanguages = ['en', 'es'];
+  const baseStatus = typeof post.status === 'string' && post.status.toLowerCase() === 'published' ? 'published' : 'draft';
+  const basePublishedAt =
+    typeof post.published_at === 'string' && post.published_at ? post.published_at : null;
+  const timestampNow = new Date().toISOString();
 
   try {
     for (const lang of targetLanguages) {
@@ -65,19 +73,72 @@ const handler: Handler = async (req) => {
         translate(post.content_html ?? '', lang)
       ]);
 
-      const { error } = await supabaseAdmin.from('posts').insert({
-        ...post,
-        id: undefined, // Let the database generate a new UUID
-        locale: lang,
-        title: translatedTitle,
-        excerpt: translatedExcerpt,
-        content_html: translatedContent,
-        status: 'draft', // Translated posts are drafts by default
-      });
+      const normalizedExcerpt = translatedExcerpt ? translatedExcerpt : null;
+      const normalizedStatus = baseStatus === 'published' ? 'published' : 'draft';
+      const normalizedPublishedAt = normalizedStatus === 'published' ? (basePublishedAt ?? timestampNow) : null;
+      const coverImageInput = post.cover_image_url as string | null | undefined;
+      let normalizedCoverImage: string | null | undefined;
 
-      if (error) {
-        console.error(`Failed to insert translated post for ${lang}:`, error);
-        // Continue to the next language even if one fails
+      if (coverImageInput === undefined) {
+        normalizedCoverImage = undefined;
+      } else if (coverImageInput === null) {
+        normalizedCoverImage = null;
+      } else {
+        normalizedCoverImage = coverImageInput;
+      }
+
+      const { data: existingPost, error: fetchError } = await supabaseAdmin
+        .from('posts')
+        .select('id')
+        .eq('slug', post.slug)
+        .eq('locale', lang)
+        .maybeSingle();
+
+      if (fetchError) {
+        console.error(`Failed to check existing translated post for ${lang}:`, fetchError);
+        continue;
+      }
+
+      const basePayload = {
+        title: translatedTitle,
+        excerpt: normalizedExcerpt,
+        content_html: translatedContent,
+        status: normalizedStatus,
+        published_at: normalizedPublishedAt,
+        updated_at: timestampNow
+      } as Record<string, unknown>;
+
+      if (normalizedCoverImage !== undefined) {
+        basePayload.cover_image_url = normalizedCoverImage;
+      }
+
+      if (existingPost) {
+        const { error: updateError } = await supabaseAdmin
+          .from('posts')
+          .update(basePayload)
+          .eq('id', existingPost.id);
+
+        if (updateError) {
+          console.error(`Failed to update translated post for ${lang}:`, updateError);
+        }
+      } else {
+        const insertPayload = {
+          slug: post.slug,
+          locale: lang,
+          ...basePayload
+        };
+
+        if (!('cover_image_url' in insertPayload)) {
+          insertPayload.cover_image_url = normalizedCoverImage ?? null;
+        }
+
+        const { error: insertError } = await supabaseAdmin
+          .from('posts')
+          .insert(insertPayload);
+
+        if (insertError) {
+          console.error(`Failed to insert translated post for ${lang}:`, insertError);
+        }
       }
     }
 

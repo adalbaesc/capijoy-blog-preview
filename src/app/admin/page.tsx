@@ -80,7 +80,10 @@ export default async function AdminPage() {
                 <div className="mt-auto flex items-center justify-between border-t border-neutral-200 pt-4">
                   <div className="flex gap-4">
                     {isDraft ? (
-                      <Link href={`/admin/editar/${safeSlug}`} className="text-indigo-600 hover:underline">
+                      <Link
+                        href={`/admin/editar/${safeSlug}?locale=${locale}`}
+                        className="text-indigo-600 hover:underline"
+                      >
                         Continuar editando
                       </Link>
                     ) : (
@@ -93,7 +96,10 @@ export default async function AdminPage() {
                         >
                           Ver
                         </LocaleLink>
-                        <Link href={`/admin/editar/${safeSlug}`} className="text-green-600 hover:underline">
+                        <Link
+                          href={`/admin/editar/${safeSlug}?locale=${locale}`}
+                          className="text-green-600 hover:underline"
+                        >
                           Editar
                         </Link>
                       </>

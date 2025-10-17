@@ -102,6 +102,8 @@ export async function updatePost(postId: string, _prevState: UpdatePostState, fo
   let updatedCoverImageUrl: string | null | undefined = undefined;
   let newStoragePath: string | null = null;
 
+  const persistedCoverImageUrl = typeof currentCoverImageUrl === 'string' && currentCoverImageUrl ? currentCoverImageUrl : null;
+
   if (coverImageFile) {
     const uniqueFileName = buildUniqueFileName(coverImageFile);
 
@@ -179,6 +181,8 @@ export async function updatePost(postId: string, _prevState: UpdatePostState, fo
     revalidatePath(`${blogBasePath}/${originalSlug}`);
   }
 
+  const coverImageForTranslation = updatedCoverImageUrl !== undefined ? updatedCoverImageUrl : persistedCoverImageUrl;
+
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/translate-post`,
@@ -197,7 +201,7 @@ export async function updatePost(postId: string, _prevState: UpdatePostState, fo
             locale: resolvedLocale,
             status: nextStatus,
             published_at: nextPublishedAt,
-            cover_image_url: updatedCoverImageUrl,
+            cover_image_url: coverImageForTranslation,
           },
         }),
       }
