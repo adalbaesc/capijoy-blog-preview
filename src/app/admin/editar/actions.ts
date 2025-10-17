@@ -174,5 +174,39 @@ export async function updatePost(postId: string, _prevState: UpdatePostState, fo
     revalidatePath(`${blogBasePath}/${originalSlug}`);
   }
 
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/translate-post`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+        },
+        body: JSON.stringify({
+          record: {
+            title,
+            slug: sanitizedSlug,
+            excerpt: typeof excerpt === 'string' ? excerpt : null,
+            content_html: contentHtml,
+            locale: resolvedLocale,
+            status: nextStatus,
+            published_at: nextPublishedAt,
+            cover_image_url: updatedCoverImageUrl,
+          },
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      console.error(
+        `Failed to trigger translation: ${response.status} ${response.statusText} - ${errorBody}`
+      );
+    }
+  } catch (error) {
+    console.error('Error triggering translation:', error);
+  }
+
   redirect('/admin');
 }
