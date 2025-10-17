@@ -30,7 +30,7 @@ export default function Navbar({locale}: {locale: Locale}) {
           {links.map(link => (
             <Link
               key={link.key}
-              href={link.anchor ? link.href : `/${locale}${link.href}`}
+              href={`/${locale}${link.href}`}
               className="opacity-80 transition hover:opacity-100"
             >
               {t(link.key)}
