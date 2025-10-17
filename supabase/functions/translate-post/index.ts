@@ -10,14 +10,28 @@ const supabaseAdmin = createClient(
 
 const translate = async (text: string, lang: string): Promise<string> => {
   if (!text) return "";
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=pt|${lang}`;
-  const response = await fetch(url);
+  const apiKey = Deno.env.get("GOOGLE_API_KEY");
+  if (!apiKey) {
+    throw new Error("GOOGLE_API_KEY is not set");
+  }
+  const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      q: text,
+      target: lang,
+      source: "pt",
+    }),
+  });
   if (!response.ok) {
     const errorBody = await response.text();
     throw new Error(`Failed to translate text: ${response.status} ${response.statusText} - ${errorBody}`);
   }
   const json = await response.json();
-  return json.responseData.translatedText;
+  return json.data.translations[0].translatedText;
 };
 
 const handler: Handler = async (req) => {
